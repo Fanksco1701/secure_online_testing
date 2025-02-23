@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}!</h1>
+    <h2>Teacher Dashboard</h2>
+
+    <div>
+        <a href="{% url 'view_classes' %}"><button>View Classes</button></a>
+        <a href="{% url 'create_class' %}"><button>Create New Class</button></a>
+    </div>
+</body>
+</html>

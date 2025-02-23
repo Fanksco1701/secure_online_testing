@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to the Secure Testing System</h1>
+    <p>Select your role to sign up or log in:</p>
+
+    <div>
+        <h2>Teacher</h2>
+        <a href="{% url 'teacher_signup' %}">
+            <button>Sign Up as Teacher</button>
+        </a>
+        <a href="{% url 'teacher_login' %}">
+            <button>Log In as Teacher</button>
+        </a>
+    </div>
+
+    <div>
+        <h2>Student</h2>
+        <a href="{% url 'student_signup' %}">
+            <button>Sign Up as Student</button>
+        </a>
+        <a href="{% url 'student_login' %}">
+            <button>Log In as Student</button>
+        </a>
+    </div>
+</body>
+</html>
