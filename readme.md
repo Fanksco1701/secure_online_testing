@@ -19,8 +19,3 @@
     -Deployment: AWS
     -Setup Instructions (Installation, Running Locally)
 
-
-**superuser**
-
-username: juan
-password: juan01

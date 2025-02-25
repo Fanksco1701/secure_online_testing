@@ -62,8 +62,6 @@ def student_login(request):
 
     return render(request, 'accounts/login.html', {'form': form})
 
-def home(request):
-    return render(request, 'home.html')  # Replace 'home.html' with your actual template name
 
 @login_required  # Ensure the user is logged in
 def teacher_dashboard(request):
@@ -74,6 +72,3 @@ def view_classes(request):
     # Logic for displaying classes will go here
     return render(request, 'accounts/view_classes.html')
 
-def create_class(request):
-    # Logic for creating a class will go here
-    return render(request, 'accounts/create_class.html')

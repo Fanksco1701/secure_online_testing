@@ -1,24 +1,12 @@
-from django.db import models
-from django.contrib.auth.models import User
 from django.conf import settings
+from django.db import models
+from accounts.models import Student  # Import the Student model from the accounts app
 
-# Create your models here.
-
-class Student(models.Model):
-    nie = models.CharField(max_length=20, unique=True)  # NIE is the unique student identifier
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return f"{self.first_name} {self.last_name} ({self.nie})"
-    
-class Classroom(models.Model):
-    GRADE_CHOICES = [(i, str(i)) for i in range(7, 13)]
-
-    grade = models.IntegerField(choices=GRADE_CHOICES)
+class Classrooms(models.Model):
+    grade = models.CharField(max_length=2)
     subject = models.CharField(max_length=100)
-    teacher = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    students = models.ManyToManyField(Student, related_name="classrooms", blank=True)
+    teacher = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Assuming the teacher is a user
+    students = models.ManyToManyField(Student, blank=True)  # Add a Many-to-Many relationship with Student
 
     def __str__(self):
-        return f"{self.subject} - Grade {self.grade} (Teacher: {self.teacher.username})"
+        return f"{self.grade} - {self.subject}"

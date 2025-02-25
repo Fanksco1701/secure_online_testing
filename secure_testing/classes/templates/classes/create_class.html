@@ -1,4 +1,5 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
 
 {% block content %}
 <div class="container">
@@ -10,16 +11,17 @@
             {{ form.grade }}
         </div>
         <div class="form-group">
-            <label for="id_subject">Subject:</label>
+            <label for="id_subject">Subjectp:</label>
             {{ form.subject }}
         </div>
         <div class="form-group">
-            <label for="id_students_nie">Students NIEs (comma-separated):</label>
+            <label for="id_students_nie">Students' NIEs (comma-separated, no spaces):</label>
             {{ form.students_nie }}
+            <small class="form-text text-muted">Enter NIEs separated by commas (e.g., 12345, 67890, 54321)</small>
         </div>
 
         <button type="submit" class="btn btn-primary">Save</button>
-        <a href="{% url 'view_classes' %}" class="btn btn-secondary">Cancel</a>
+        <a href="{% url 'teacher_dashboard' %}" class="btn btn-secondary">Cancel</a>
     </form>
 
     {% if messages %}
@@ -31,3 +33,4 @@
     {% endif %}
 </div>
 {% endblock %}
+</html>

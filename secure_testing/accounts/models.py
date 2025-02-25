@@ -15,8 +15,11 @@ class Teacher(models.Model):
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    NIE = models.CharField(max_length=20)
+    NIE = models.CharField(max_length=20, unique=True)  # Ensure NIE is unique
     email = models.EmailField()
+
+    def __str__(self):
+        return f"{self.user.username} - {self.NIE}"
 
 
 class Profile(models.Model):
